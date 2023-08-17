@@ -16,13 +16,13 @@ public class UserStepsDefinitions {
         user.navigatesTo();
     }
 
-    @And("^user signs in as standard user$")
+    @And("^user logs in as standard user$")
     public void userSignsInAsStandardUser() {
         user.userLogin();
         
     }
 
-    @Then("^user is on the inventory page$")
+    @Given("^user is on the inventory page$")
     public void userIsOnTheInventoryPage() {
         user.userLogged();
     }
@@ -50,43 +50,43 @@ public class UserStepsDefinitions {
     }
 
 
-    @When("^user order the products by (.*)$")
+    @And("^user orders the products by (.*)$")
     public void userOrderTheProductsByFilterOption(String filterOption) {
         user.userLogged();
         user.userSortProductsLowToHigh(filterOption);
     }
 
-    @When("^user adds (.*) products most expensive to the cart$")
+    @And("^user adds (.*) of the most expensive products to the cart$")
     public void userAddsProductQuantityProductsMostExpensiveToTheCart(String quantity) {
         user.userAddMostExpensive(quantity);
     }
 
-    @Then("^the cart should have (.*) products$")
+    @Then("^cart should contain (.*) products$")
     public void theCartShouldHaveExpectedQuantityProducts(String expectedQuantity) {
         user.expectedCartBadge(expectedQuantity);
     }
 
-    @When("^user clicks on the cart button$")
+    @And("^user clicks on the cart button$")
     public void userClicksOnTheCartButton() {
         user.userClicksShoppingCart();
     }
 
-    @Then("^user goes to Checkout$")
+    @And("^user is redirected to the Checkout page$")
     public void userGoesToCheckout() {
         user.userClicksCheckout();
     }
 
-    @When("^user fills (.*), (.*) and (.*) fields$")
+    @When("^user fills in the (.*), (.*) and (.*) fields$")
     public void userFillsFirst_nameLast_nameAndZip_codeFields(String name, String last_name, String zip_code) {
         user.userFillsFields(name, last_name, zip_code);
     }
 
-    @Then("^user checks purchase and finishes the purchase$")
+    @And("^user checks the purchase and completes the purchase$")
     public void userChecksPurchaseAndFinishesThePurchase() {
         user.userClicksFinish();
     }
 
-    @And("^a success message is displayed$")
+    @Then("^a success message is displayed$")
     public void aSuccessMessageIsDisplayed() {
         user.userCheckThankYouMessage();
     }

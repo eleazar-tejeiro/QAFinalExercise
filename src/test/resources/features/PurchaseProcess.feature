@@ -1,19 +1,19 @@
 Feature: Order products by price and buy 4 products
 
-  Background: User logs in to Sauce Demo Website
+  Background:
     Given user navigates to https://www.saucedemo.com/
-    And user signs in as standard user
+    And user logs in as standard user
 
-  Scenario Outline: Order products and verify cart shopping
+  Scenario Outline: Order products and verify shopping cart
     Given user is on the inventory page
-    When user order the products by <filterOption>
-    When user adds <productQuantity> products most expensive to the cart
-    Then the cart should have <expectedQuantity> products
-    When user clicks on the cart button
-    Then user goes to Checkout
-    When user fills <first_name>, <last_name> and <zip_code> fields
-    Then user checks purchase and finishes the purchase
-    And a success message is displayed
+    And user orders the products by <filterOption>
+    And user adds <productQuantity> of the most expensive products to the cart
+    Then cart should contain <expectedQuantity> products
+    And user clicks on the cart button
+    And user is redirected to the Checkout page
+    When user fills in the <first_name>, <last_name>, and <zip_code> fields
+    And user checks the purchase and completes the purchase
+    Then a success message is displayed
 
     Examples:
       | filterOption        | productQuantity | expectedQuantity | first_name | last_name | zip_code |
