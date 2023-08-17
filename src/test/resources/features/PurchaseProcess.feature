@@ -11,7 +11,7 @@ Feature: Order products by price and buy 4 products
     Then cart should contain <expectedQuantity> products
     And user clicks on the cart button
     And user is redirected to the Checkout page
-    When user fills in the <first_name>, <last_name>, and <zip_code> fields
+    When user fills in the <first_name>, <last_name> and <zip_code> fields
     And user checks the purchase and completes the purchase
     Then a success message is displayed
 
